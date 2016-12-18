@@ -1,0 +1,25 @@
+{
+  "name": "try-dsa",
+  "version": "1.0.0",
+  "description": "###Arrays - Resizes 2x when limit is reached - o(1), good for random access, with a known length -> access operation can be done by add/sub - o(n) search, insertion & deletion (need to move items)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/philarr/try-dsa.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/philarr/try-dsa/issues"
+  },
+  "homepage": "https://github.com/philarr/try-dsa#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coffee-script": "^1.12.2",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1"
+  }
+}
