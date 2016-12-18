@@ -1,6 +1,6 @@
 CircularLList = require('../data-struct/CircularLList.coffee')
 
-jospehus = (num) ->
+josephus = (num) ->
   if num < 1
     return 0
   Circle = new CircularLList()
@@ -15,4 +15,4 @@ jospehus = (num) ->
       removeNode = removeNode.next.next
   Circle.head.item
 
-module.exports = jospehus
+module.exports = josephus
