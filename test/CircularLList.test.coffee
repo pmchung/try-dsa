@@ -74,12 +74,4 @@ module.exports = () ->
       Circle.removeAt(0)
       expect(Circle.head).to.equal(null)
     )
-
   )
-
-
-
-
-
-
-

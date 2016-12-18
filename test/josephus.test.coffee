@@ -8,7 +8,7 @@ module.exports = () ->
   it('should return position 5 for 10 soldiers', () ->
     expect(josephus(10)).to.equal(5)
   )
-  it('should return position 15 for 71 soldiers', () ->
+  it('should return position 3111 for 32923 soldiers', () ->
     expect(josephus(32923)).to.equal(311)
   )
   it('return position 0 for 0 soldiers', () ->

@@ -16,15 +16,3 @@ jospehus = (num) ->
   Circle.head.item
 
 module.exports = jospehus
-
-
-
-
-
-
-
-
-
-
-
-
