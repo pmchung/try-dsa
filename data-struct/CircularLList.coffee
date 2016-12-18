@@ -14,6 +14,13 @@ class CircularLList
     @head = null
     @tail = null
 
+  step: (node, offset) ->
+    offsetNode = node
+    for i in [0...Math.abs(offset)]
+      do ->
+        offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
+    offsetNode  
+
   get: (index) ->
     currentNode = @head
     while(index-- && currentNode != null) 

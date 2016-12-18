@@ -23,6 +23,29 @@ module.exports = () ->
     )
   )
 
+  describe('step(node, offset)', () ->
+    it('should return new node from specified offset', () ->
+      Circle = new CircularLList()
+      Circle.append(0)
+      Circle.append(1)
+      Circle.append(2)
+      Circle.append(3)
+      node = Circle.head
+      expect(Circle.step(node, 2).item).to.equal(2)
+      expect(Circle.step(node, 0).item).to.equal(0)
+    )
+    it('should step backwards when offset is negative', () ->
+      Circle = new CircularLList()
+      Circle.append(0)
+      Circle.append(1)
+      Circle.append(2)
+      Circle.append(3)
+      node = Circle.tail
+      expect(Circle.step(node, -3).item).to.equal(0)
+    )
+
+  )
+
   describe('append(item)', () ->
     it('should insert new node at the end', () ->
       Circle = new CircularLList();
@@ -55,6 +78,7 @@ module.exports = () ->
       Circle.removeAt(3) # 3
       expect(Circle.get(0).item).to.equal(3)
     ) 
+
     it('should return new length', () ->
       Circle = new CircularLList()
       Circle.append(1)
@@ -66,6 +90,7 @@ module.exports = () ->
       newLength = Circle.length
       expect(newLength).to.equal(oldLength - 1)
     )
+
     it('should return null for head if removing last node in list', () ->
       Circle = new CircularLList()
       Circle.append(1)

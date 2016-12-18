@@ -1,6 +1,6 @@
 CircularLList = require('../data-struct/CircularLList.coffee')
 
-josephus = (num) ->
+josephus = (num, k) ->
   if num < 1
     return 0
   Circle = new CircularLList()
@@ -8,11 +8,11 @@ josephus = (num) ->
   for i in [1..num]
     do(i) -> Circle.append(i);
   # start removing
-  removeNode = Circle.head.next
+  removeNode = Circle.step(Circle.head, k - 1)
   while(Circle.length > 1)
     do -> 
       Circle.remove(removeNode)
-      removeNode = removeNode.next.next
+      removeNode = Circle.step(removeNode, k)
   Circle.head.item
 
 module.exports = josephus
