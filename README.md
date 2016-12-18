@@ -1,7 +1,11 @@
 #Data Structures & Algorithms
 
-Unit test and notes for data structures & algorithms using CoffeeScript, Mocha, Chai, Gulp
+Unit test and notes for Data Structures & Algorithms using CoffeeScript, Mocha, Chai, Gulp
 ___
+
+###Install
+
+`npm install`
 
 ###Run test
 
