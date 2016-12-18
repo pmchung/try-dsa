@@ -28,7 +28,7 @@ class CircularLList
       node.prev = @tail
       node.next = @head
     else
-      # [t] <-  [n] ->  [h] 
+      # [t] <-  [n]  -> [h] 
       node.next = @head
       node.prev = @tail
       # [t] <-> [n] <-> [h] 
@@ -41,10 +41,10 @@ class CircularLList
     if @length > 1
       node.next.prev = node.prev # point previous node's next to node's next node
       node.prev.next = node.next # point next node's prev to node's previous
-      if (node == @head)
-        @head = node.next
+      if (node == @head) 
+        @head = node.next # set new head
       if (node == @tail)
-        @tail = node.prev
+        @tail = node.prev # set new tail
     else
       @head = null
       @tail = null
@@ -55,9 +55,3 @@ class CircularLList
     @remove(currentNode)
 
 module.exports = CircularLList
-
-
-
-
-
-
