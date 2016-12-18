@@ -15,11 +15,11 @@ class CircularLList
     @tail = null
 
   step: (node, offset) ->
+    steps = Math.abs(offset);
     offsetNode = node
-    for i in [0...Math.abs(offset)]
-      do ->
-        offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
-    offsetNode  
+    while(steps--)
+      do -> offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
+    offsetNode
 
   get: (index) ->
     currentNode = @head

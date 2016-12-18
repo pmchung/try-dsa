@@ -43,7 +43,6 @@ module.exports = () ->
       node = Circle.tail
       expect(Circle.step(node, -3).item).to.equal(0)
     )
-
   )
 
   describe('append(item)', () ->
