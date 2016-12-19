@@ -9,5 +9,5 @@ ___
 
 ###Run test
 
-`gulp`
+`npm test`
 
