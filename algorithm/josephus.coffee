@@ -19,14 +19,12 @@ josephus = (num, k) ->
     return 0
   Circle = new CircularLList()
   # set up the soldiers
-  for i in [1..num]
-    do(i) -> Circle.append(i)
+  Circle.append(i) for i in [1..num]
   # start removing
-  soldier = Circle.step(Circle.head, k - 1) # starting at 1 so skip by k-1
+  soldier = Circle.step(Circle.head, k - 1) # starting at 1 so step by k-1
   while(Circle.length > 1)
-    do -> 
-      Circle.remove(soldier) # kill this soldier
-      soldier = Circle.step(soldier, k) # go to soldier 2 steps from current dead soldier
+    Circle.remove(soldier) # kill this soldier
+    soldier = Circle.step(soldier, k) # go to soldier 2 steps from current dead soldier
   Circle.head.item
 
 module.exports = josephus

@@ -18,7 +18,7 @@ class CircularLList
     steps = Math.abs(offset);
     offsetNode = node
     while(steps--)
-      do -> offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
+      offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
     offsetNode
 
   get: (index) ->
@@ -48,10 +48,8 @@ class CircularLList
     if @length > 1
       node.next.prev = node.prev # point previous node's next to node's next node
       node.prev.next = node.next # point next node's prev to node's previous
-      if (node == @head) 
-        @head = node.next # set new head
-      if (node == @tail)
-        @tail = node.prev # set new tail
+      @head = node.next if node == @head # set new head
+      @tail = node.prev if node == @tail # set new tail
     else
       @head = null
       @tail = null
