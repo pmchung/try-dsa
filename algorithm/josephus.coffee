@@ -15,18 +15,18 @@
 CircularLList = require('../data-struct/CircularLList.coffee')
 
 josephus = (num, k) ->
-  if num < 1
+  if !num? || num < 1
     return 0
   Circle = new CircularLList()
   # set up the soldiers
   for i in [1..num]
-    do(i) -> Circle.append(i);
+    do(i) -> Circle.append(i)
   # start removing
   soldier = Circle.step(Circle.head, k - 1) # starting at 1 so skip by k-1
   while(Circle.length > 1)
     do -> 
       Circle.remove(soldier) # kill this soldier
-      soldier = Circle.step(soldier, k) # go to soldier 2 steps from current
+      soldier = Circle.step(soldier, k) # go to soldier 2 steps from current dead soldier
   Circle.head.item
 
 module.exports = josephus

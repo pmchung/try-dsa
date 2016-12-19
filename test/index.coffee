@@ -1,5 +1,11 @@
 describe('Data Structures', () -> 
-  describe('CircularLList', require('./CircularLList.test.coffee'))
+  describe('Circular Linked List', require('./CircularLList.test.coffee'))
+  describe('Binary Search Tree', () ->
+    it 'should do stuff'
+  )
+  describe('Red-Black Tree', () ->
+    it 'should do stuff'
+  )
 )
 
 describe('Algorithms', () ->
