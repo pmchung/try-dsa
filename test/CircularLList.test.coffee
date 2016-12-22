@@ -1,5 +1,5 @@
 expect = require('chai').expect
-CircularLList = require('../data-struct/CircularLList.coffee')
+CircularLList = require('../data-structures/CircularLList.coffee')
 
 module.exports = ->
   describe('get(index)', ->

@@ -9,7 +9,7 @@ class Node
     @next = null
 
 class CircularLList
-  constructor: () ->
+  constructor: ->
     @length = 0
     @head = null
     @tail = null
@@ -50,10 +50,11 @@ class CircularLList
       node.prev.next = node.next # point next node's prev to node's previous
       @head = node.next if node == @head # set new head
       @tail = node.prev if node == @tail # set new tail
+      @length -= 1
     else
       @head = null
       @tail = null
-    @length -= 1
+    @length
 
   removeAt: (index) ->
     currentNode = @get(index)
