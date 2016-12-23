@@ -10,6 +10,5 @@ diagonalDiff = (matrix) ->
     topLeftToBottomRight += height[index]
     topRightToBottomLeft += height[height.length - (index + 1)]
   Math.abs topLeftToBottomRight - topRightToBottomLeft
-
-
+  
 module.exports = diagonalDiff

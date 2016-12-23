@@ -5,8 +5,8 @@ module.exports = ->
   it 'should return position 15 for 71 soldiers when 2 step', ->
     expect(josephus(71, 2)).to.equal(15)
 
-  it 'should return position 311 for 32923 soldiers when 2 step', ->
-    expect(josephus(32923, 2)).to.equal(311)
+  it 'should return position 182299 for 222221 soldiers when 2 step', ->
+    expect(josephus(222221, 2)).to.equal(182299)
   
   it 'should return position 14 for 2 soldiers when 3 step', ->
     expect(josephus(14, 3)).to.equal(2)
