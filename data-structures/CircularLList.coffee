@@ -14,20 +14,20 @@ class CircularLList
     @head = null
     @tail = null
 
-  step: (node, offset) ->
+  step: (node, offset) -> # o(n)
     steps = Math.abs(offset)
     offsetNode = node
     while(steps--)
       offsetNode = if offset > 0 then offsetNode.next else offsetNode.prev
     offsetNode
 
-  get: (index) ->
+  get: (index) -> # o(n)
     currentNode = @head
     while(index-- && currentNode != null)
       currentNode = currentNode.next
     currentNode
 
-  append: (item) ->
+  append: (item) -> # o(1)
     node = new Node(item)
     if @length == 0
       @head = node
@@ -44,7 +44,7 @@ class CircularLList
       @tail = node # track this node as new tail
     @length += 1
 
-  remove: (node) ->
+  remove: (node) -> # o(1)
     if @length > 1
       node.next.prev = node.prev # point previous node's next to node's next
       node.prev.next = node.next # point next node's prev to node's previous
@@ -56,7 +56,7 @@ class CircularLList
       @tail = null
     @length
 
-  removeAt: (index) ->
+  removeAt: (index) -> # o(n)
     currentNode = @get(index)
     @remove(currentNode)
     
