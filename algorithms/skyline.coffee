@@ -11,7 +11,7 @@
 
 
 ###
-  Final
+  Working final
   4b.  Map every start XY and end XY & filter out each individual point if meet criteria
       185~ms by pre-filtering the points
 ###
@@ -35,7 +35,7 @@ getSkyline = (buildings) ->
       points.push dupeStart[start] = new StartPoint(start, height)
     else if height > dupeStart[start].y
       dupeStart[start].y = height
-      
+
     # Separate check because EndPoint should not be removed by the existence of another StartPoint
     # Need to keep EndPoint to descend
     if !dupeEnd[end]
@@ -79,6 +79,7 @@ getSkyline = (buildings) ->
 
 
 ###
+  Semi-working
   4a. Map every start XY and end XY & filter out each individual point if meet criteria
     
     Time limit exceed without breaks
@@ -152,8 +153,9 @@ getSkyline = (buildings) ->
 ###
 
 ###
+  Not working
   3. Collapse the width?
-  Will have to add remaining width after and it gets crazy/probably need to re-sort every time
+  Will have to add remaining width after and it gets crazy/need to re-sort every time
  
 skyline = (buildings) ->
   # [start, end, height]
@@ -197,6 +199,7 @@ skyline = (buildings) ->
 ###
 
 ###
+  Not working
   2. Check previous neighbour
   Won't work for later buildings that overlaps an earlier building in the list
 
@@ -234,6 +237,7 @@ skyline = (buildings) ->
  ###
 
 ###
+  Semi-working?
   1. Plot width in array
   Not enough memoy for large sets when plotting a huge array
 
