@@ -10,7 +10,7 @@
 ###
   Working final
   4b.  Map every start XY and end XY & filter out each individual point if meet criteria
-      185~ms by pre-filtering the points & breaking early
+      200~ms by pre-filtering the points & breaking early
 ###
 class StartPoint
   constructor: (@x = 0, @y = 0, @show = true) ->
@@ -50,8 +50,8 @@ getSkyline = (buildings) ->
     for [start, end, height] in buildings
       # Removal criteria
       #   If point is shadowed by another building
-      #   If StartPoint overlaps the end of another building of same height
-      #   If EndPoint overlaps the start of another building of same height
+      #   If StartPoint overlaps the end of another building of same height (merge)
+      #   If EndPoint overlaps the start of another building of same height (merge)
       if start < point.x < end && height >= point.y or
       type is 'StartPoint' && end == point.x && height == point.y or
       type is 'EndPoint' && start == point.x && height == point.y
