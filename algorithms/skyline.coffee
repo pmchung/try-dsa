@@ -7,13 +7,10 @@
   output = [ [2, 10], [3, 15], [7, 12], [12, 0], [15, 10], [20, 8], [24, 0] ]
 ###
 
-
-
-
 ###
   Working final
   4b.  Map every start XY and end XY & filter out each individual point if meet criteria
-      185~ms by pre-filtering the points
+      185~ms by pre-filtering the points & breaking early
 ###
 class StartPoint
   constructor: (@x = 0, @y = 0, @show = true) ->
@@ -27,7 +24,7 @@ getSkyline = (buildings) ->
   points = []
   dupeStart = {}
   dupeEnd = {}
-  # Break up building XYs into points
+  # Break up building XYs into separate start/end points
   # also pre-filter any duplicates as we go
   for [start, end, height] in buildings
     # Only keep points that are higher than existing one of same X position
@@ -37,7 +34,7 @@ getSkyline = (buildings) ->
       dupeStart[start].y = height
 
     # Separate check because EndPoint should not be removed by the existence of another StartPoint
-    # Need to keep EndPoint to descend
+    # Need to keep EndPoint around for descends
     if !dupeEnd[end]
       points.push dupeEnd[end] = new EndPoint(end, height)
     else if height > dupeEnd[end].y
@@ -49,7 +46,7 @@ getSkyline = (buildings) ->
 
   results = for point in points
     type = point.constructor.name
-    # Each point has to go through every building to check for removal
+    # Each point has to go through every building to check for removal unless it meets removal criteria
     for [start, end, height] in buildings
       # Removal criteria
       #   If point is shadowed by another building
@@ -63,7 +60,7 @@ getSkyline = (buildings) ->
 
       # Lower EndPoint to next highest height available
       if type is 'EndPoint' && start <= point.x <= end
-        # Make sure we always go higher but never over ceiling
+        # Make sure we always go higher if available but never over ceiling
         if point.y > height > point.floor
           point.floor = height
 
@@ -73,8 +70,7 @@ getSkyline = (buildings) ->
     else
       [point.x, point.y]
 
-  if results[results.length - 1]
-    results[results.length - 1][1] = 0
+  results[results.length - 1]?[1] = 0
   results
 
 
