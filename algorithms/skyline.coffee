@@ -46,7 +46,7 @@ getSkyline = (buildings) ->
 
   results = for point in points
     type = point.constructor.name
-    # Each point has to go through every building to check for removal unless it meets removal criteria
+    # Each point has to go through every building to check unless it meets removal criteria then we can exit early
     for [start, end, height] in buildings
       # Removal criteria
       #   If point is shadowed by another building
